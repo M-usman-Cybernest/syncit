@@ -1,9 +1,14 @@
 {
     "version": 2,
+    "buildCommand": "yarn turbo run build",
     "builds": [
         {
-            "src": "apps/frontend/next.config.js",
-            "use": "@vercel/next"
+            "src": "packages/database/package.json",
+            "use": "@vercel/node"
+        },
+        {
+            "src": "packages/nest-js/package.json",
+            "use": "@vercel/node"
         },
         {
             "src": "apps/microservices/auth/src/main.ts",
