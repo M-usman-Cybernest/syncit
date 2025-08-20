@@ -6,7 +6,8 @@
   "license": "UNLICENSED",
   "author": "",
   "scripts": {
-    "build": "cd ../../packages/database && yarn db:generate && cd ../../apps/microservices/auth && nest build",
+    "build": "yarn db:generate && nest build",
+    "db:generate": "cd ../../packages/database && yarn db:generate",
     "dev": "nest start --watch",
     "format": "prettier --write \"src/**/*.ts\" \"test/**/*.ts\"",
     "lint": "eslint \"{src,apps,libs,test}/**/*.ts\" --fix",
