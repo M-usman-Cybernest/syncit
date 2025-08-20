@@ -6,11 +6,19 @@ import { prisma } from "./prisma";
 export class UserDataMiddleware implements NestMiddleware {
   async use(req: Request, res: Response, next: NextFunction) {
     try {
-      const { user } = await prisma.session.findFirstOrThrow({
+      if (!req.cookies["syncit-session-id"]) {
+        next();
+        return;
+      }
+
+      const session = await prisma.session.findFirst({
         where: { id: req.cookies["syncit-session-id"] },
         include: { user: true },
       });
-      res.locals.userData = user;
+
+      if (session?.user) {
+        res.locals.userData = session.user;
+      }
     } catch (e) {
       console.error("failed to get user data", e);
     }
