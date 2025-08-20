@@ -1,0 +1,58 @@
+{
+  "name": "web",
+  "version": "0.0.1",
+  "private": true,
+  "description": "Blank project with routing included",
+  "type": "module",
+  "scripts": {
+    "build": "qwik build",
+    "build.client": "vite build",
+    "build.preview": "vite build --ssr src/entry.preview.tsx",
+    "build.types": "tsc --incremental --noEmit",
+    "deploy": "echo 'Run \"npm run qwik add\" to install a server adapter'",
+    "dev": "vite --mode ssr",
+    "dev.debug": "node --inspect-brk ./node_modules/vite/bin/vite.js --mode ssr --force",
+    "env-check": "dotenv-checker -s .env.example -e .env",
+    "fmt": "prettier --write .",
+    "fmt.check": "prettier --check .",
+    "lint": "eslint \"src/**/*.ts*\"",
+    "preview": "qwik build preview && vite preview --open",
+    "qwik": "qwik",
+    "start": "vite --open --mode ssr"
+  },
+  "dependencies": {
+    "@repo/db": "*",
+    "set-cookie-parser": "^2.7.1"
+  },
+  "devDependencies": {
+    "@builder.io/qwik": "^1.9.1",
+    "@builder.io/qwik-city": "^1.9.1",
+    "@modular-forms/qwik": "^0.28.1",
+    "@types/eslint": "8.56.10",
+    "@types/node": "20.14.11",
+    "@types/set-cookie-parser": "^2.4.10",
+    "@typescript-eslint/eslint-plugin": "7.16.1",
+    "@typescript-eslint/parser": "7.16.1",
+    "autoprefixer": "^10.4.19",
+    "daisyui": "^4.12.13",
+    "eslint": "8.57.0",
+    "eslint-plugin-qwik": "^1.9.1",
+    "eslint-plugin-tailwindcss": "^3.17.5",
+    "postcss": "^8.4.39",
+    "prettier": "3.3.3",
+    "prettier-plugin-tailwindcss": "^0.5.4",
+    "tailwindcss": "^3.4.6",
+    "typescript": "5.4.5",
+    "undici": "*",
+    "vite": "5.3.6",
+    "vite-tsconfig-paths": "^4.2.1"
+  },
+  "engines": {
+    "node": "^18.17.0 || ^20.3.0 || >=21.0.0"
+  },
+  "engines-annotation": "Mostly required by sharp which needs a Node-API v9 compatible runtime",
+  "trustedDependencies": [
+    "sharp"
+  ],
+  "trustedDependencies-annotation": "Needed for bun to allow running install scripts"
+}
