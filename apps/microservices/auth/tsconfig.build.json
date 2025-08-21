@@ -1,4 +1,11 @@
 {
   "extends": "./tsconfig.json",
+  "compilerOptions": {
+    "baseUrl": ".",
+    "paths": {
+      "@repo/nest-js": ["../../packages/nest-js/dist"],
+      "@repo/db": ["../../packages/database/dist"]
+    }
+  },
   "exclude": ["node_modules", "test", "dist", "**/*spec.ts"]
 }

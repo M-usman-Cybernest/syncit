@@ -10,9 +10,12 @@
     "target": "ES2021",
     "sourceMap": true,
     "outDir": "./dist",
-    "baseUrl": "./",
+    "baseUrl": ".",
     "paths": {
-      "@repo/*": ["../../packages/*/src"]
+      "@repo/nest-js": ["../../packages/nest-js/src/index.ts"],
+      "@repo/nest-js/*": ["../../packages/nest-js/src/*"],
+      "@repo/db": ["../../packages/database/src/index.ts"],
+      "@repo/db/*": ["../../packages/database/src/*"]
     },
     "incremental": true,
     "skipLibCheck": true,
@@ -21,5 +24,11 @@
     "strictBindCallApply": false,
     "forceConsistentCasingInFileNames": false,
     "noFallthroughCasesInSwitch": false
-  }
+  },
+  "include": ["src/**/*"],
+  "references": [
+    { "path": "../../packages/nest-js" },
+    { "path": "../../packages/database" }
+  ]
+}
 }

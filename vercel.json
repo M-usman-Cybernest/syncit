@@ -1,16 +1,15 @@
 {
     "version": 2,
+    "buildCommand": "yarn install && yarn workspace @repo/db build && yarn workspace @repo/nest-js build && yarn workspace auth build",
     "builds": [
         {
-            "src": "apps/microservices/auth/src/main.ts",
+            "src": "apps/microservices/auth/dist/main.js",
             "use": "@vercel/node",
             "config": {
-                "buildCommand": "cd ../../packages/database && yarn install && yarn build && cd ../nest-js && yarn install && yarn build && cd ../../apps/microservices/auth && yarn install && yarn build",
                 "includeFiles": [
-                    "apps/microservices/auth/**/*",
-                    "packages/database/**/*",
-                    "packages/nest-js/**/*",
-                    "packages/configs/**/*"
+                    "apps/microservices/auth/dist/**",
+                    "packages/database/dist/**",
+                    "packages/nest-js/dist/**"
                 ]
             }
         }
