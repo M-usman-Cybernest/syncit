@@ -1,15 +1,16 @@
 {
     "version": 2,
+    "buildCommand": "cd packages/configs && yarn install && cd ../database && yarn install && yarn build && cd ../nest-js && yarn install && yarn build && cd ../../apps/microservices/auth && yarn install && yarn build",
+    "outputDirectory": "apps/microservices/auth/dist",
     "builds": [
         {
-            "src": "apps/microservices/auth/src/main.ts",
+            "src": "apps/microservices/auth/dist/**/*.js",
             "use": "@vercel/node",
             "config": {
-                "buildCommand": "cd ../../packages/database && yarn install && yarn build && cd ../nest-js && yarn install && yarn build && cd ../../apps/microservices/auth && yarn install && yarn build",
                 "includeFiles": [
-                    "apps/microservices/auth/**/*",
-                    "packages/database/**/*",
-                    "packages/nest-js/**/*",
+                    "apps/microservices/auth/dist/**/*",
+                    "packages/database/dist/**/*",
+                    "packages/nest-js/dist/**/*",
                     "packages/configs/**/*"
                 ]
             }
