@@ -6,8 +6,8 @@
   "license": "UNLICENSED",
   "author": "",
   "scripts": {
-    "build": "nest build -p tsconfig.build.json",
-    "prebuild": "yarn db:generate",
+    "build": "nest build",
+    "vercel-build": "yarn db:generate && nest build",
     "db:generate": "cd ../../packages/database && yarn db:generate",
     "dev": "nest start --watch",
     "format": "prettier --write \"src/**/*.ts\" \"test/**/*.ts\"",
